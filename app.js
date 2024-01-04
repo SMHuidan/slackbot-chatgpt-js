@@ -31,6 +31,9 @@ app.event("message", async ({ message, say }) => {
 
   if(message.text[0] == '!')
   {
+
+    message.text = message.text.substring(1);
+    
     try {
       const response = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
