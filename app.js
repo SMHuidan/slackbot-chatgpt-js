@@ -29,7 +29,7 @@ app.event("message", async ({ message, say }) => {
 
   console.log(message);
 
-  if(message[0] == '!')
+  if(message.text[0] == '!')
   {
     try {
       const response = await openai.createChatCompletion({
