@@ -24,6 +24,7 @@ app.message('Test', async ({ message, say }) => {
   await say(`Test: <@${message.user}>`);
 });
 
+/*
 app.event("message", async ({ message, say }) => {
 
   console.log(message);
@@ -44,7 +45,7 @@ app.event("message", async ({ message, say }) => {
   }
 
 });
-
+*/
 app.event("app_mention", async ( { message, say }) => {
 
   try {
