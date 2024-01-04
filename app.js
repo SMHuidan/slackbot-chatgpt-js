@@ -24,28 +24,37 @@ app.message('Test', async ({ message, say }) => {
   await say(`Test: <@${message.user}>`);
 });
 
-/*
+
 app.event("message", async ({ message, say }) => {
 
   console.log(message);
 
-  try {
-    const response = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
-      messages: [
-        { role: "user", content: `${message.text}` }
-      ],
-    });
-
-    console.log(response);
-    await say(response.data.choices[0].message.content);
-  } catch (err) {
-    console.log(err);
-    return await say("Error")
+  if(message[0] == '!')
+  {
+    try {
+      const response = await openai.createChatCompletion({
+        model: "gpt-3.5-turbo",
+        messages: [
+          { role: "user", content: `${message.text}` }
+        ],
+      });
+  
+      console.log(response);
+      await say(response.data.choices[0].message.content);
+    } catch (err) {
+      console.log(err);
+      return await say("Error")
+    }
+  }
+  else 
+  {
+    return;
   }
 
 });
-*/
+
+
+/*
 app.event("app_mention", async ( { message, say }) => {
 
   try {
@@ -65,7 +74,7 @@ app.event("app_mention", async ( { message, say }) => {
   }
   
 });
-
+*/
 
 (async () => {
   await app.start();
