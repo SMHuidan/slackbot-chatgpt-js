@@ -19,21 +19,21 @@ const app = new App({
   port: process.env.PORT || 3000
 });
 
-
+/*
 app.message('Test', async ({ message, say }) => {
   await say(`Test: <@${message.user}>`);
 });
-
+*/
 
 app.event("message", async ({ message, say }) => {
 
-  console.log(message);
+ 
 
   if(message.text[0] == '!')
   {
 
     message.text = message.text.substring(1);
-    
+    console.log(message);
     try {
       const response = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
@@ -50,9 +50,8 @@ app.event("message", async ({ message, say }) => {
     }
   }
   else 
-  {
-    return;
-  }
+      return;
+  
 
 });
 
